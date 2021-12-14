@@ -47,7 +47,7 @@
             android:id="@+id/id_elect"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text"
+            android:inputType="number"
             />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -127,7 +127,7 @@
         />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_load_elec"
+        android:id="@+id/btn_update"
         android:layout_marginTop="40dp"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -149,7 +149,7 @@
         android:layout_height="wrap_content"
         android:text="Regresar"
         app:icon="@drawable/ic_back"
-        app:layout_constraintTop_toBottomOf="@id/btn_load_elec"
+        app:layout_constraintTop_toBottomOf="@id/btn_update"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         />

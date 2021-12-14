@@ -43,4 +43,32 @@ class DataElectrodomesticos {
         return auxElectrodomesticos
     }
 
+    fun deleteForIndex(con: Context, index:Int){
+        var electrodomesticosSave=loadData(con)
+        if(electrodomesticosSave.total>0) {
+            electrodomesticosSave.delete(index)
+
+            val jsonString = Gson().toJson(electrodomesticosSave)
+
+            val pref = PreferenceManager.getDefaultSharedPreferences(con)
+            var editor = pref.edit()
+            editor.putString(key, jsonString)
+            editor.apply()
+        }
+    }
+
+    fun UpdateElect(con: Context,index: Int, electrodomestico: Electrodomestico){
+        var electrodomesticosSave=loadData(con)
+        if(index <= electrodomesticosSave.total) {
+            electrodomesticosSave.update(index,electrodomestico)
+            val jsonString = Gson().toJson(electrodomesticosSave)
+
+            val pref = PreferenceManager.getDefaultSharedPreferences(con)
+            var editor = pref.edit()
+            editor.putString(key, jsonString)
+            editor.apply()
+        }
+    }
 }
+
+
