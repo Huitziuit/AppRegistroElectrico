@@ -10,14 +10,14 @@ class DataElectrodomesticos {
     val key = "OBJ"
 
     fun saveData(electrodomestico: Electrodomestico, con: Context){
-        var electrodomesticosSave=loadData(con)
+        val electrodomesticosSave=loadData(con)
         if(electrodomesticosSave.total==0) {
-            var electrodomesticos=Electrodomesticos()
+            val electrodomesticos=Electrodomesticos()
             electrodomesticos.add(electrodomestico)
             val jsonString = Gson().toJson(electrodomesticos)
 
             val pref = PreferenceManager.getDefaultSharedPreferences(con)
-            var editor = pref.edit()
+            val editor = pref.edit()
             editor.putString(key, jsonString)
             editor.apply()
         }else{
@@ -25,7 +25,7 @@ class DataElectrodomesticos {
             val jsonString = Gson().toJson(electrodomesticosSave)
 
             val pref = PreferenceManager.getDefaultSharedPreferences(con)
-            var editor = pref.edit()
+            val editor = pref.edit()
             editor.putString(key, jsonString)
             editor.apply()
         }
@@ -34,8 +34,8 @@ class DataElectrodomesticos {
 
     fun loadData( con: Context): Electrodomesticos {
 
-        val pref=PreferenceManager.getDefaultSharedPreferences(con)
-        val jsonString = pref.getString(key, null)
+        var pref=PreferenceManager.getDefaultSharedPreferences(con)
+        var jsonString = pref.getString(key, null)
         var auxElectrodomesticos=Electrodomesticos()
         if(jsonString!=null) {
             auxElectrodomesticos = Gson().fromJson(jsonString, Electrodomesticos::class.java)
@@ -44,27 +44,27 @@ class DataElectrodomesticos {
     }
 
     fun deleteForIndex(con: Context, index:Int){
-        var electrodomesticosSave=loadData(con)
+        val electrodomesticosSave=loadData(con)
         if(electrodomesticosSave.total>0) {
             electrodomesticosSave.delete(index)
 
             val jsonString = Gson().toJson(electrodomesticosSave)
 
             val pref = PreferenceManager.getDefaultSharedPreferences(con)
-            var editor = pref.edit()
+            val editor = pref.edit()
             editor.putString(key, jsonString)
             editor.apply()
         }
     }
 
-    fun UpdateElect(con: Context,index: Int, electrodomestico: Electrodomestico){
-        var electrodomesticosSave=loadData(con)
+    fun updateElect(con: Context, index: Int, electrodomestico: Electrodomestico){
+        val electrodomesticosSave=loadData(con)
         if(index <= electrodomesticosSave.total) {
             electrodomesticosSave.update(index,electrodomestico)
             val jsonString = Gson().toJson(electrodomesticosSave)
 
             val pref = PreferenceManager.getDefaultSharedPreferences(con)
-            var editor = pref.edit()
+            val editor = pref.edit()
             editor.putString(key, jsonString)
             editor.apply()
         }

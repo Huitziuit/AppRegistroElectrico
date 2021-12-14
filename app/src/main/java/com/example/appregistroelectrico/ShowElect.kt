@@ -11,14 +11,19 @@ class ShowElect : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_show_elect)
 
-        var data = DataElectrodomesticos()
-        var electrodomesticos = data.loadData(this)
 
-        var message:String=""
+
+        val data = DataElectrodomesticos()
+        val electrodomesticos = data.loadData(this)
+
+        var message="Total de electrodomésticos: ${electrodomesticos.total}\n\n"
+
         for (i in (1..electrodomesticos.total)){
             message+="ID: $i \n"
             message+=electrodomesticos.getElect(i-1).getData()
         }
+
+
 
         findViewById<TextView>(R.id.info).text = message
 
@@ -29,6 +34,8 @@ class ShowElect : AppCompatActivity() {
                 startActivity(it)
             }
         }
+
+
 
     }
 }

@@ -25,7 +25,7 @@ class AddElect : AppCompatActivity() {
             val conectado = findViewById<CheckBox>(R.id.CB_siempre_conectado).isChecked.toString()
             val newElect = Electrodomestico(nombre,potencia,horas,conectado)
 
-            var data =DataElectrodomesticos()
+            val data =DataElectrodomesticos()
             data.saveData(newElect,this)
         }
     }

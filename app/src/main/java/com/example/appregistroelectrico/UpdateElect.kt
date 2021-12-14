@@ -28,7 +28,7 @@ class UpdateElect : AppCompatActivity() {
             val upElect = Electrodomestico(nombre,potencia,horas,conectado)
 
             val data = DataElectrodomesticos()
-            data.UpdateElect(this, index, upElect)
+            data.updateElect(this, index, upElect)
 
         }
 
