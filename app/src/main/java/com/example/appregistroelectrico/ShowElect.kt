@@ -16,6 +16,7 @@ class ShowElect : AppCompatActivity() {
         val data = DataElectrodomesticos()
         val electrodomesticos = data.loadData(this)
 
+
         var message="Total de electrodomésticos: ${electrodomesticos.total}\n\n"
 
         for (i in (1..electrodomesticos.total)){

@@ -32,7 +32,7 @@
         app:layout_constraintStart_toStartOf="@id/titulo"
         app:layout_constraintEnd_toEndOf="@id/titulo"
         android:layout_marginTop="28dp"
-
+        app:counterEnabled="true"
         >
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/nombre_elec"
@@ -54,6 +54,7 @@
         app:layout_constraintStart_toStartOf="@id/titulo"
         app:layout_constraintEnd_toEndOf="@id/titulo"
         android:layout_marginTop="22dp"
+
         >
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/potencia_elec"
